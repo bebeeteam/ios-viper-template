@@ -40,7 +40,7 @@ class {{ module_info.name }}Router {
         return tmpViewController
     }
 
-    fileprivate public func storyBoardWith(name: String) -> UIStoryboard {
+    fileprivate func storyBoardWith(name: String) -> UIStoryboard {
         let storyboard = UIStoryboard(name: name, bundle: Bundle.main)
 
         return storyboard
