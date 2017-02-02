@@ -1,0 +1,52 @@
+//
+//  {{ module_info.file_name }}
+//  {{ module_info.project_name }}
+//
+//  Created by {{ developer.name }} on {{ date }}.
+//  Copyright © {{ year }} {{ developer.company }}. All rights reserved.
+//
+
+import UIKit
+
+class {{ module_info.name }}Router {
+
+    // MARK: Properties
+    var viewController: {{ module_info.name }}ViewController!
+    let viewControllerIdentifier = "{{ module_info.name }}ViewController"
+
+    // MARK: Factory
+    init() {
+
+        // Create scene
+        let presenter = {{ module_info.name }}Presenter()
+        let view = viewControllerFromStoryboard()
+        let interactor = {{ module_info.name }}Interactor()
+
+        view.presenter = presenter
+        presenter.view = view
+        presenter.interactor = interactor
+        presenter.router = self
+        interactor.output = presenter
+
+        viewController = view
+    }
+
+    // MARK: - Private
+
+    fileprivate func viewControllerFromStoryboard() -> {{ module_info.name }}ViewController {
+        let storyboard = storyBoardWith(name: "{{ module_info.name }}Scene")
+        let tmpViewController = storyboard.instantiateViewController(withIdentifier: viewControllerIdentifier) as! {{ module_info.name }}ViewController
+
+        return tmpViewController
+    }
+
+    fileprivate public func storyBoardWith(name: String) -> UIStoryboard {
+        let storyboard = UIStoryboard(name: name, bundle: Bundle.main)
+
+        return storyboard
+    }
+}
+
+extension {{ module_info.name }}Router: {{ module_info.name }}RouterInterface {
+
+}

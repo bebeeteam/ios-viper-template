@@ -1,0 +1,29 @@
+# Template information section
+name: beBee
+summary: beBee Swift VIPER module template
+author: José Manuel Rodríguez Moreno
+version: 1.0.0
+license: MIT
+
+# The declarations for code files
+code_files:
+
+# Business Logic
+- {name: BusinessLogic/DataManager}
+- {name: BusinessLogic/Model}
+- {name: BusinessLogic/Interactor.swift, path: Code/BusinessLogic/interactor.swift.liquid}
+
+# Protocols
+- {name: Protocols/Protocols.swift, path: Code/Protocols/protocols.swift.liquid}
+
+# View Layer
+- {name: UserInterface/View}
+- {name: UserInterface/ViewModel}
+- {name: UserInterface/View/ViewController.swift, path: Code/UserInterface/View/viewcontroller.swift.liquid}
+- {name: UserInterface/Presenter.swift, path: Code/UserInterface/presenter.swift.liquid}
+- {name: UserInterface/Router.swift, path: Code/UserInterface/router.swift.liquid}
+
+
+# The declarations for test files
+test_files:
+- {name: View/ViewTests.swift, path: Tests/View/view_tests.swift.liquid}
